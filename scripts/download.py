@@ -66,7 +66,7 @@ answer = input("download the list? 1=yes, 0=no: ")
 
 if answer == "1":
     for i in content:
-        result = run(["yt-dlp", i])
+        result = run(["yt-dlp", "--downloader aria2c", i])
         if result.returncode != 0:
             if not skip_warn:
                 print("yt-dlp failed:")
