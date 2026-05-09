@@ -1,0 +1,24 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+mouse = false
+cursorline = true
+true-color = true
+idle-timeout = 200
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-modification-indicator"]
+center = ["file-name"]
+right = ["read-only-indicator", "register", "diagnostics", "position", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
