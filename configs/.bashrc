@@ -1,0 +1,18 @@
+# .bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# shell prompt
+PS1='\033[32m\u\033[0m@\h \033[33m(\W)\033[0m \033[34m->\033[0m '
+
+# aliases
+alias ls='ls --color=auto'
+alias venv="source .venv/bin/activate"
+
+# exports
+export EDITOR="hx"
+export TERM="wezterm"
+
+# autostart
+fastfetch
