@@ -3,6 +3,8 @@
 # playlist is a simple script that plays videos/mp3s inside the current working directory
 # using MPV media player
 
+# BUG: this shit also dosen't work for some reason
+
 from subprocess import run
 from sys import argv, exit
 from pathlib import Path

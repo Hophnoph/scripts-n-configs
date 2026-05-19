@@ -17,6 +17,7 @@ this is a script made to play a music list
 EOF
     ;;
   "-s" | "--skip")
+    # BUG: seems like when i do ls to a var, it saves it as a single string rather than an array, so when i load it to mpv, it fails 
     list=$(ls)
 
     for i in "${list[@]}"; do
@@ -32,6 +33,7 @@ EOF
 
       if [[ -d "$dir" ]]; then
         cd "$dir" || return
+        # BUG: same shit here
         list=$(ls)
 
         for i in "${list[@]}"; do
