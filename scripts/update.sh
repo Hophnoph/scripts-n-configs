@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 case "$1" in
   "--help" | "-h")
 cat <<EOF
@@ -8,7 +10,7 @@ Update.sh | update.sh [args]
 simple update script for: xbps, uv, flatpak, brew
 
 keep in mind this script WILL remove 'cache' and 'orphan' packages
-from each package system if possible
+from each package system's packages if possible
 
 options
   --help    or -h | print this help
@@ -24,41 +26,52 @@ EOF
     flatpak update && flatpak upgrade
     flatpak uninstall --unused
 
-    uv tool upgrade
+    echo
+    uv tool upgrade --all
 
+    echo
     brew update && brew upgrade
     brew cleanup
 
-    echo "xbps-install needs sudo"
+    echo
+    echo "-> xbps-install needs sudo"
     sudo xbps-install -Su
-    echo "xbps-remove needs sudo"
+
+    echo
+    echo "-> xbps-remove needs sudo"
     sudo xbps-remove -Oo
   ;;
 
   "--xbps" | "-x")
     echo "xbps-install needs sudo"
     sudo xbps-install -Su
+
+    echo
     echo "xbps-remove needs sudo"
     sudo xbps-remove -Oo
   ;;
 
   "--brew" | "-b")
     brew update && brew upgrade
+
+    echo
     brew cleanup
   ;;
 
   "--uv" | "-v")
-    uv tool upgrade
+    uv tool upgrade --all
   ;;
 
   "--flatpak" | "-f")
     flatpak update && flatpak upgrade
+
+    echo
     flatpak uninstall --unused
   ;;
 
   *)
     if [[ "$1" == "" ]]; then
-      echo "you did not spefy a command"
+      echo "you did not specify a command"
     else
       echo "command not found"
     fi
