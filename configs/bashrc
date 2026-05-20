@@ -1,5 +1,8 @@
 # .bashrc
 
+# this config is best used with bash-compeletion & ble.sh
+
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
