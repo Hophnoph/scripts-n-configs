@@ -5,7 +5,7 @@ set -e
 case "$1" in
   "--help" | "-h")
 cat <<EOF
-Update Shell | update.sh [args]
+Update | update.sh [args]
 
 simple update script for: xbps, uv, flatpak, brew
 
