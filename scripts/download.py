@@ -4,7 +4,7 @@ from subprocess import run
 from sys import argv, exit
 
 HELP_MSG = [
-    "download.py [args]",
+    "Download Py | download.py [args]",
     "",
     "-h: print this help",
     "",
