@@ -52,7 +52,6 @@ EOF
     echo -n "target directory ? (don't end it with a forward slash '/'): "
     read -r target_dir
 
-    echo
     echo -n "Name your Playlist: "
     read -r playlist_name
 
