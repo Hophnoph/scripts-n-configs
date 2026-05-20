@@ -13,6 +13,10 @@ a simple script made to make an m3u playlist file
 depending on the media that exists in the Current Working Directory
 or a specified target directory instead
 
+WARNING: this script will include all files in CWD or Target directory
+so make sure you only put videos/music file formats rather than anything else
+this way your playlist dosen't have an executable file or anything unwanted
+
 Arguments
   --help      or -h | print this help
   --start     or -s | start making a playlist
