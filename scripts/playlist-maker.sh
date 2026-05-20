@@ -2,6 +2,8 @@
 
 set -e
 
+SCRIPT_NAME="$(basename "$0")"
+
 case "$1" in
   "-h" | "--help")
 cat <<EOF
@@ -9,6 +11,7 @@ Playlist Maker | playlist-maker.sh [args]
 
 a simple script made to make an m3u playlist file
 depending on the media that exists in the Current Working Directory
+or a specified target directory instead
 
 Arguments
   --help      or -h | print this help
@@ -33,8 +36,12 @@ EOF
     done
 
     for i in "${cwd_files[@]}"; do
-      echo "$i" >> "${playlist_name}".m3u
+      if [[ "$i" != "${playlist_name}".m3u && "$i" != "$SCRIPT_NAME" ]]; then
+        echo "$i" >> "${playlist_name}".m3u
+      fi
     done    
+
+    echo "Done: your playlist is ready!"
     ;;
 
   "--directory" | "-d")
@@ -57,8 +64,12 @@ EOF
     done
 
     for i in "${target_files[@]}"; do
-      echo "$i" >> "${playlist_name}".m3u
+      if [[ "$i" != "${playlist_name}".m3u && "$i" != "$SCRIPT_NAME" ]]; then
+        echo "$i" >> "${playlist_name}".m3u
+      fi
     done    
+
+    echo "Done: your playlist is ready!"
     ;;
 
   *)
