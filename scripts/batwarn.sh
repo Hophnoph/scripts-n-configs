@@ -2,16 +2,35 @@
 
 # a script made to send a notifcation when laptop battery is too low
 # best used with a minmal Windows Manager, like: i3, sway, qtile, dwm, etc
-# will use dunst as the notifcation daemon by default, can be changed
+# will use dunst as the notifcation daemon by default
+#
+# When autostarting this script, make sure to end it with an ampersand (&)
+# like this: ./dir/to/script/batwarn.sh &, and chmod +x it ofcourse
 
-# notifcation command, used to specify which daemon to use + the notifcation message
-NOTIF_CMD=""
-LOW_PERC=""
-LOWEST_PERC=""
+set -e
 
+# low percentage to check
+LOW_PERC=5
 
-# i will dev this for later, steps are todo it is
-# 1. make a var that stores battery level with some command using this syntax bat_level=$(command)
-# 2. make an if statment to check if the battery level is lower than wanted using LOW_PERC var 
-# 3. if it is, execute the NOTIF_CMD command to send warning with desird message + make another check for lower,
-#    example it first checks if it's lower than 5%, then send message, then checks again if it's exactly 3%, which is about to shutdown, then makes a serious urgent warning final time 
+# lowest percentage to check
+LOWEST_PERC=3 
+
+# battery identifier or name
+BAT_ID="BAT1"
+
+# time to check the battery again (counted by minutes)
+CHECK_INTERVAL=5
+
+while true; do
+  BAT_LEVEL=$(cat /sys/class/power_supply/${BAT_ID}/capacity)
+
+  if [[ "$BAT_LEVEL" -le "$LOWEST_PERC" ]]; then
+    # lowest battery notifcation command and message (edit if you wanna use a diffrent messag or notifcation daemon)
+    notify-send -u critical -i battery-low 'Battery VERY Low' 'Your Device will Shutdown NOW!'
+  elif [[ "$BAT_LEVEL" -le "$LOW_PERC" ]]; then
+    # low battery notifcation command and message (edit if you wanna use a diffrent messag or notifcation daemon)
+    notify-send -u critical -i battery-low 'Battery Low' 'Plug in your charger immediately!'
+  fi
+
+  sleep ${CHECK_INTERVAL}m
+done
