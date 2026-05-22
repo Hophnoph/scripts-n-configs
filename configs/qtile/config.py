@@ -116,16 +116,12 @@ screens = [
             [
                 widget.GroupBox(),
                 widget.Prompt(prompt="launch: "),
-                widget.WindowName(empty_group_string=""),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.TextBox(
+                    text="/",
+                    foreground="#ffffff",
+                    padding=5,
                 ),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
+                widget.WindowName(empty_group_string=""),
                 widget.Systray(),
                 widget.Battery(
                     format='{char} {percent:2.0%}',
@@ -135,7 +131,12 @@ screens = [
                     unknown_char='',
                     show_short_text=False,
                 ),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.TextBox(
+                    text="|",
+                    foreground="#ffffff",
+                    padding=5,
+                ),
+                widget.Clock(format="%Y-%m-%d %a  |  %I:%M %p"),
             ],
             30,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
