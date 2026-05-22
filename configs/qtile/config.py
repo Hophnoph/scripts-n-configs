@@ -117,14 +117,19 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(prompt="launch: "),
                 widget.TextBox(
-                    text="/",
+                    text="|",
                     foreground="#ffffff",
                     padding=5,
                 ),
                 widget.WindowName(empty_group_string=""),
                 widget.Systray(),
+                widget.TextBox(
+                    text="|",
+                    foreground="#ffffff",
+                    padding=5,
+                ),
                 widget.Battery(
-                    format='{char} {percent:2.0%}',
+                    format='{char}{percent:2.0%}',
                     charge_char='',
                     discharge_char='',
                     empty_char='',
