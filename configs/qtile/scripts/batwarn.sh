@@ -3,9 +3,6 @@
 # a script made to send a notifcation when laptop battery is too low
 # best used with a minmal Windows Manager, like: i3, sway, qtile, dwm, etc
 # will use dunst as the notifcation daemon by default
-#
-# When autostarting this script, make sure to end it with an ampersand (&)
-# like this: ./dir/to/script/batwarn.sh &, and chmod +x it ofcourse
 
 set -e
 
@@ -19,7 +16,7 @@ LOWEST_PERC=3
 BAT_ID="BAT1"
 
 # time to check the battery again (counted by minutes)
-CHECK_INTERVAL=5
+CHECK_INTERVAL=1
 
 while true; do
   BAT_LEVEL=$(cat /sys/class/power_supply/${BAT_ID}/capacity)
