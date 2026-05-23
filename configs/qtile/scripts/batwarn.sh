@@ -38,5 +38,10 @@ while true; do
     fi
   fi
 
+  if [[ "$BAT_LEVEL" -ge "$LOWEST_PERC" ]]; then
+    lowest_bat_notif_send="false"
+    lowest_bat_notif_send="false"
+  fi
+
   sleep ${CHECK_INTERVAL}m
 done
