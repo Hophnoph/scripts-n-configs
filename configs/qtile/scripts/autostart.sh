@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # options
-setxkbmap fr
-redshift -P -O 3500
 nitrogen --restore
+redshift -P -O 3500
+setxkbmap fr
 
 # programs
 dunst &
