@@ -27,13 +27,13 @@ while true; do
   if [[ "$BAT_LEVEL" -le "$LOWEST_PERC" ]]; then
     if [[ "$low_bat_notif_send" == "false" ]]; then
       # lowest battery notifcation command and message (edit if you wanna use a diffrent messag or notifcation daemon)
-      notify-send -u critical -i battery-low 'Battery VERY Low' 'Your Device will Shutdown NOW!'
+      notify-send -u critical -i battery-low 'Battery is VERY Low' 'Your Device will Shutdown NOW!'
       low_bat_notif_send="true"
     fi
   elif [[ "$BAT_LEVEL" -le "$LOW_PERC" ]]; then
     if [[ "$lowest_bat_notif_send" == "false" ]]; then
       # low battery notifcation command and message (edit if you wanna use a diffrent messag or notifcation daemon)
-      notify-send -u critical -i battery-low 'Battery Low' 'Plug in your charger immediately!'
+      notify-send -u critical -i battery-low 'Battery is Low' 'Plug in your charger immediately!'
       lowest_bat_notif_send="true"
     fi
   fi
