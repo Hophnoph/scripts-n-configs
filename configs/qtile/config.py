@@ -65,7 +65,9 @@ keys = [
 
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%"), desc="increase brightness"),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-"), desc="decrease brightness"),
-    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="launch rofi in drun mode")
+
+    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="launch rofi in drun mode"),
+    Key([mod, "control"], "x", lazy.spawn("i3lock"), desc="launch i3lock")
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -193,6 +195,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 focus_previous_on_window_remove = False
