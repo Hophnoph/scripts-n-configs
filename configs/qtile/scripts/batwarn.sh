@@ -7,6 +7,7 @@
 # NOTE: you can enable this script through the autostart.sh script
 # but it didn't work for me, i would recomened to enable it through cron
 # you can use cronie for it
+# or you can run it through a service using your distro's init system
 
 set -e
 
