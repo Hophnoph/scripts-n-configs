@@ -224,6 +224,6 @@ wmname = "LG3D"
 @hook.subscribe.startup_once
 def autostart():
     script = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen(script, shell=True)
+    subprocess.Popen([script])
 
 
