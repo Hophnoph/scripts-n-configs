@@ -4,6 +4,10 @@
 # best used with a minmal Windows Manager, like: i3, sway, qtile, dwm, etc
 # will use dunst as the notifcation daemon by default
 
+# NOTE: you can enable this script through the autostart.sh script
+# but it didn't work for me, i would recomened to enable it through cron
+# you can use cronie for it
+
 set -e
 
 # low percentage to check

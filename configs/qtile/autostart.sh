@@ -11,4 +11,4 @@ blueman-applet &
 pipewire &
 
 # scripts
-./scripts/batwarn.sh &
+#./scripts/batwarn.sh &
