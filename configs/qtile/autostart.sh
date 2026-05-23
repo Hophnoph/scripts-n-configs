@@ -10,6 +10,3 @@ dunst &
 nm-applet &
 blueman-applet &
 pipewire &
-
-# scripts
-#./scripts/batwarn.sh &
