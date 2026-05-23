@@ -223,7 +223,14 @@ wmname = "LG3D"
 
 @hook.subscribe.startup_once
 def autostart():
-    script = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen([script])
+    autostart = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.Popen([autostart])
 
+@hook.subscribe.startup_once
+def scripts():
+    script_dict = {
+        "batwarn": os.path.expanduser('~/.config/qtile/scripts/batwarn.sh')
+    }
+    for _, v in script_dict.items():
+        subprocess.Popen([v])
 
