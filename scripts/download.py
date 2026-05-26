@@ -2,6 +2,7 @@
 
 from subprocess import run
 from sys import argv, exit
+from turtle import goto
 
 HELP_MSG = [
     "Download Py | download.py [args]",
@@ -62,26 +63,25 @@ except FileNotFoundError:
 for i in content:
     print(i)
 
-answer = input("download the list? 1=yes, 0=no: ")
+answer = input("download the list? 0=no or anykey=yes: ")
 
-if answer == "1":
+if answer != "0":
     for i in content:
         result = run(["yt-dlp", i])
         if result.returncode != 0:
             if not skip_warn:
                 print("yt-dlp failed:")
                 print(" check url in list.txt or retry")
-                answer = input("continue download? 1=yes, 0=no: ")
-                if answer != "1":
+                answer = input("continue download? 0=no or anykey=yes: ")
+                if answer == "0":
                     exit()
-
 else:
     print("request denied")
 
 if scan:
     print("do you want to scan current working dir.")
-    answer = input("for viruses with clamav? 1=yes, 0=no: ")
-    if answer == "1":
+    answer = input("for viruses with clamav? 0=no or anykey=yes: ")
+    if answer != "0":
         run(["mkdir", "infected"])
         print("updating virus signiture database, requires sudo")
         run(["sudo", "freshclam"])
