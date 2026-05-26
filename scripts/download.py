@@ -2,7 +2,6 @@
 
 from subprocess import run
 from sys import argv, exit
-from turtle import goto
 
 HELP_MSG = [
     "Download Py | download.py [args]",
