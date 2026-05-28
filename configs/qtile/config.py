@@ -67,7 +67,9 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-"), desc="decrease brightness"),
 
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="launch rofi in drun mode"),
-    Key([mod, "control"], "x", lazy.spawn("i3lock"), desc="launch i3lock")
+    Key([mod, "control"], "x", lazy.spawn("i3lock"), desc="launch i3lock"),
+
+    Key([mod], "comma", lazy.spawn("flatpak run com.tomjwatson.Emote"), desc="launch emote")
 ]
 
 # Add key bindings to switch VTs in Wayland.
