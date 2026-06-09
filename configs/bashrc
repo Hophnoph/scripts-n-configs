@@ -12,7 +12,7 @@ PS1='\033[32m\u\033[0m@\h \033[33m(\W)\033[0m \033[34m->\033[0m '
 # aliases
 alias ls='ls --color=auto'
 alias venv="source .venv/bin/activate"
-alias code="cd ~/Documents/REPO/"
+alias code="source ./.code-switcher.sh" # this line is made to run 'code-switcher.sh' script, place that script to your home dir and make it hidden
 alias clrf="clear && fastfetch"
 alias reload="cd && source .bashrc"
 
